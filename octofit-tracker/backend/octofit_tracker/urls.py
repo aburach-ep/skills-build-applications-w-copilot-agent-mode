@@ -1,3 +1,15 @@
+import os
+from django.contrib import admin
+from django.urls import path, include
+
+# Получаем имя Codespace из переменной окружения
+CODESPACE_NAME = os.environ.get('CODESPACE_NAME')
+
+# REST API endpoints
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('api/', include('octofit_tracker.urls')),
+]
 """octofit_tracker URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
